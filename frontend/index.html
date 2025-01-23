@@ -1,0 +1,40 @@
+!<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"
+    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Random Number Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quantum Random Number Generator</h1>
+        <div class="controls">
+            <label for="bits">Number of bits:</label>
+            <select id="bits">
+                <option value="1">1 (0-1)</option>
+                <option value="2">2 (0-3)</option>
+                <option value="3">3 (0-7)</option>
+                <option value="4" selected>4 (0-15)</option>
+                <option value="5">5 (0-31)</option>
+                <option value="6">6 (0-63)</option>
+                <option value="7">7 (0-127)</option>
+                <option value="8">8 (0-255)</option>
+            </select>
+            <button id="generate">Generate Number</button>
+        </div>
+        <<div class="result">
+            <div class="number-display">
+                <h2>Decimal:</h2>
+                <p id="decimal-result">-</p>
+            </div>
+            <div class="number-display">
+                <h2>Binary:</h2>
+                <p id="binary-result">-</p>
+            </div>
+        </div>
+        <div id="error" class="error"></div>
+    </div>
+        <script src="script.js"></script>
+</body>
+</html>
