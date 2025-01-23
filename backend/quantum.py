@@ -25,4 +25,25 @@ class QuantumRNG:
         """Generate a random number using quantum circuit"""
         try:
             # Create and execute the circuit
+            circuit = self.create_quantum_circuit(num_bits)
+            job = execute(circuit,
+                          backend=self.provider.get_backend('simulator'),
+                          shots=shots)
+            result = job.result()
 
+            # Get the counts of measurement
+            counts = result.get_counts(circuit)
+
+            # Convert binary string to decimal
+            # Take the first result if multiple shots
+            binary_result = list(counts.keys())[0]
+            decimal_result = int(binary_result, 2)
+
+            return {
+                'decimal': decimal_result,
+                'binary': binary_result,
+                'max_value': 2**num_bits - 1
+            }
+
+    except Exception as e:
+            return {'error': str(e)}
